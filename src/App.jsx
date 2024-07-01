@@ -3,14 +3,15 @@ import {
     BrowserRouter,
     Routes,
     Route,
-    Link,
-  } from "react-router-dom";
+} from "react-router-dom";
 import Home from "./routes/Home";
 import Update from "./routes/Update";
 import Details from "./routes/Details";
+import AddReview from "./routes/AddReview"; // Import AddReview component
+import NotFound from "./routes/NotFound"; // Import NotFound component
 import { RestaurantContextProvider } from './context/RestaurantContext';
 
-function App(){
+function App() {
     return (
         <RestaurantContextProvider>
             <div className="container">
@@ -19,12 +20,13 @@ function App(){
                         <Route exact path="/" element={<Home />} />
                         <Route exact path="/restaurants/:id/update" element={<Update />} />
                         <Route exact path="/restaurants/:id" element={<Details />} />
+                        <Route exact path="/restaurants/:id/addReview" element={<AddReview />} />
+                        <Route path="*" element={<NotFound />} /> {/* Catch-all route */}
                     </Routes>
                 </BrowserRouter>
             </div>
-
-        </RestaurantContextProvider>);
-
+        </RestaurantContextProvider>
+    );
 }
 
 export default App;
