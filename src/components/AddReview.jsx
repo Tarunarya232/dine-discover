@@ -5,8 +5,6 @@ import { useLocation, useNavigate, useParams } from 'react-router-dom';
 const AddReview = (props) => {
   let navigate = useNavigate();
   const location = useLocation();
-  // let history = useHistory();
-
   const { id } = useParams();
 
   const [name, setName] = useState("");
@@ -21,11 +19,7 @@ const AddReview = (props) => {
         review: review,
         rating: rating,
       });
-      // console.log(response);
-      // navigate("/");
-      // navigate(`/restaurants/${id}`);
-      // location.reload();
-      window.location.reload();
+      navigate(location.pathname); // Navigate to the same page
     } catch (error) {
       console.error("Failed to submit review", error);
     }
