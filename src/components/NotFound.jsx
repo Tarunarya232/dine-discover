@@ -6,8 +6,12 @@ const NotFound = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Redirect to the same URL that caused the 404 error
-        navigate(location.pathname, { replace: true });
+        // Delay the redirection slightly to allow the message to display briefly
+        const timer = setTimeout(() => {
+            navigate(location.pathname, { replace: true });
+        }, 1000);
+
+        return () => clearTimeout(timer);
     }, [location, navigate]);
 
     return (
