@@ -7,8 +7,8 @@ import {
 import Home from "./routes/Home";
 import Update from "./routes/Update";
 import Details from "./routes/Details";
-import AddReview from "./components/AddReview"; // Import AddReview component
-import NotFound from "./components/NotFound"; // Import NotFound component
+import AddReview from "./components/AddReview";
+import NotFound from "./components/NotFound";
 import { RestaurantContextProvider } from './context/RestaurantContext';
 
 function App() {
