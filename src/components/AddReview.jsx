@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import DineDiscover from '../apis/DineDiscover';
-import { useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
 const AddReview = (props) => {
   let navigate = useNavigate();
-  const location = useLocation();
   const { id } = useParams();
 
   const [name, setName] = useState("");
@@ -19,7 +18,7 @@ const AddReview = (props) => {
         review: review,
         rating: rating,
       });
-      navigate(location.pathname); // Navigate to the same page
+      navigate(0); // Refresh the page
     } catch (error) {
       console.error("Failed to submit review", error);
     }
